@@ -1,2 +1,10 @@
 <h1>Slideshow#index</h1>
-<p>Find me in app/views/slideshow/index.html.erb</p>
+
+<ul>
+	<li><%= link_to "祝電を見る", slideshow_new_path %></li>
+</ul>
+
+<ul>
+	<li><%= link_to "「上の句」の登録/編集/削除", upper_phrases_path %></li>
+	<li><%= link_to "「下の句」の登録/編集/削除", lower_phrases_path %></li>
+</ul>
