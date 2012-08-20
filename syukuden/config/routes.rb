@@ -1,4 +1,10 @@
 Syukuden::Application.routes.draw do
+  get "slideshow/index"
+
+  get "slideshow/new"
+
+  get "slideshow/show"
+
   resources :lower_phrases
 
   resources :upper_phrases
