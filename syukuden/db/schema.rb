@@ -11,7 +11,15 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120820121003) do
+ActiveRecord::Schema.define(:version => 20120820122727) do
+
+  create_table "lower_phrases", :force => true do |t|
+    t.text     "content",                       :null => false
+    t.boolean  "available",  :default => true
+    t.boolean  "deleted",    :default => false
+    t.datetime "created_at",                    :null => false
+    t.datetime "updated_at",                    :null => false
+  end
 
   create_table "upper_phrases", :force => true do |t|
     t.text     "content",                       :null => false

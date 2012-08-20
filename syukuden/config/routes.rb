@@ -1,4 +1,6 @@
 Syukuden::Application.routes.draw do
+  resources :lower_phrases
+
   resources :upper_phrases
 
   # The priority is based upon order of creation:
