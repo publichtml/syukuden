@@ -4,4 +4,8 @@ class UpperPhrase < ActiveRecord::Base
   never_wastes
 
   validates_presence_of :content
+
+  def self.random
+  	offset(rand(count)).first
+  end
 end

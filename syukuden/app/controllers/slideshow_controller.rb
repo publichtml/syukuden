@@ -6,5 +6,7 @@ class SlideshowController < ApplicationController
   end
 
   def show
+  	@upper_phrase = UpperPhrase.random
+  	@lower_phrase = LowerPhrase.random
   end
 end
