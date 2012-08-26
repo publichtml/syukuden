@@ -1,4 +1,6 @@
 Syukuden::Application.routes.draw do
+  root :to => 'slideshow#index'
+
   get "slideshow/index"
 
   get "slideshow/new"
