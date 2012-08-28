@@ -8,3 +8,10 @@
 	<li><%= link_to "「上の句」の登録/編集/削除", upper_phrases_path %></li>
 	<li><%= link_to "「下の句」の登録/編集/削除", lower_phrases_path %></li>
 </ul>
+
+<hr>
+
+<ul>
+	<li><%= link_to "Sign in with Twitter", user_omniauth_authorize_path(:twitter) %></li>
+	<li><%= link_to "Sign in with Facebook", user_omniauth_authorize_path(:facebook) %></li>
+</ul>

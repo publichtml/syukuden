@@ -11,7 +11,15 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120820121003) do
+ActiveRecord::Schema.define(:version => 20120828163207) do
+
+  create_table "lower_phrases", :force => true do |t|
+    t.text     "content",                       :null => false
+    t.boolean  "available",  :default => true
+    t.boolean  "deleted",    :default => false
+    t.datetime "created_at",                    :null => false
+    t.datetime "updated_at",                    :null => false
+  end
 
   create_table "upper_phrases", :force => true do |t|
     t.text     "content",                       :null => false
@@ -19,6 +27,13 @@ ActiveRecord::Schema.define(:version => 20120820121003) do
     t.boolean  "deleted",    :default => false
     t.datetime "created_at",                    :null => false
     t.datetime "updated_at",                    :null => false
+  end
+
+  create_table "users", :force => true do |t|
+    t.string   "provider",   :default => "", :null => false
+    t.string   "uid",        :default => "", :null => false
+    t.datetime "created_at",                 :null => false
+    t.datetime "updated_at",                 :null => false
   end
 
 end

@@ -1,6 +1,9 @@
 # Use this hook to configure devise mailer, warden hooks and so forth.
 # Many of these configuration options can be set straight in your model.
 Devise.setup do |config|
+  config.omniauth :facebook, ENV['facebook_app_id'], ENV['facebook_app_secret'], scope: ''
+  config.omniauth :twitter, ENV['twitter_consumer_key'], ENV['twitter_consumer_secret']
+
   # ==> Mailer Configuration
   # Configure the e-mail address which will be shown in Devise::Mailer,
   # note that it will be overwritten if you use your own mailer class with default "from" parameter.
@@ -82,7 +85,7 @@ Devise.setup do |config|
   config.stretches = Rails.env.test? ? 1 : 10
 
   # Setup a pepper to generate the encrypted password.
-  # config.pepper = "9b9a84f7722107d755edd655f5e13d0031012c8b845ba0c45360b2ae467c4eb5b6ecdc4b9da768c6555ccfc5f4ff855db1d406660a14e76fbdcc76a9c18e4d96"
+  # config.pepper = "8e4b330dd62d9b0c0a43c5028e9530ddedaa0f47046c0fbd55bdcd85416c9db3a0c55990d00f3a40d2ba6de06c437428a3b658dd36019279a9e377419e9f6117"
 
   # ==> Configuration for :confirmable
   # A period that the user is allowed to access the website even without
