@@ -11,9 +11,9 @@ upper_phrases = %w(おめでとう)
 lower_phrases = %w(頑張ってください)
 
 upper_phrases.each do |content|
-  UpperPhrase.create(:content => content)
+  UpperPhrase.create(:content => content) unless UpperPhrase.find_by_content(content)
 end
 
 lower_phrases.each do |content|
-  LowerPhrase.create(:content => content)
+  LowerPhrase.create(:content => content) unless LowerPhrase.find_by_content(content)
 end
