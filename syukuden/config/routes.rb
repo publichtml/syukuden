@@ -1,5 +1,8 @@
 Syukuden::Application.routes.draw do
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
+  devise_scope :user do
+    delete 'user_logout' => 'users/sessions#destroy'
+  end
 
   root :to => 'slideshow#index'
 
