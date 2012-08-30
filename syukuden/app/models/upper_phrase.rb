@@ -1,0 +1,2 @@
+class UpperPhrase < Phrase
+end

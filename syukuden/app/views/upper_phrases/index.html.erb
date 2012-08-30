@@ -1,0 +1,27 @@
+<h1>Listing upper_phrases</h1>
+
+<table>
+  <tr>
+    <th>Content</th>
+    <th>Available</th>
+    <th>Deleted</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @upper_phrases.each do |upper_phrase| %>
+  <tr>
+    <td><%= upper_phrase.content %></td>
+    <td><%= upper_phrase.available %></td>
+    <td><%= upper_phrase.deleted %></td>
+    <td><%= link_to 'Show', upper_phrase %></td>
+    <td><%= link_to 'Edit', edit_upper_phrase_path(upper_phrase) %></td>
+    <td><%= link_to 'Destroy', upper_phrase, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Upper phrase', new_upper_phrase_path %>

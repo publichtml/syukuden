@@ -1,0 +1,2 @@
+class LowerPhrase < Phrase
+end
