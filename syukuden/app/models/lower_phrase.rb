@@ -1,2 +1,0 @@
-class LowerPhrase < Phrase
-end
