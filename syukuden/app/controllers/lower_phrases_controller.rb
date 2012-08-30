@@ -4,6 +4,9 @@ class LowerPhrasesController < ApplicationController
   #       (リンクは相変わらず「上の句」と「下の句」に分けて、どちらかをGETで持ち回す)
   # GET /lower_phrases
   # GET /lower_phrases.json
+
+  before_filter :authenticate_user!
+
   def index
     @lower_phrases = LowerPhrase.all
 

@@ -1,6 +1,9 @@
 class UpperPhrasesController < ApplicationController
   # GET /upper_phrases
   # GET /upper_phrases.json
+ 
+  before_filter :authenticate_user!
+
   def index
     @upper_phrases = UpperPhrase.all
 
