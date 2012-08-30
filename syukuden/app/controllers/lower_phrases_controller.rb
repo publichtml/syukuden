@@ -1,4 +1,7 @@
 class LowerPhrasesController < ApplicationController
+  # ToDo: UpperPhraseControllerとLowerPhraseControllerに別れているが、
+  #       これは一つのPhraseControllerに統合した方が良さそう
+  #       (リンクは相変わらず「上の句」と「下の句」に分けて、どちらかをGETで持ち回す)
   # GET /lower_phrases
   # GET /lower_phrases.json
   def index
@@ -41,6 +44,7 @@ class LowerPhrasesController < ApplicationController
   # POST /lower_phrases.json
   def create
     @lower_phrase = LowerPhrase.new(params[:lower_phrase])
+    @lower_phrase.user_id = current_user.id
 
     respond_to do |format|
       if @lower_phrase.save
