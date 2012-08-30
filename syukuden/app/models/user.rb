@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 class User < ActiveRecord::Base
   # Include default devise modules. Others available are:
   # :token_authenticatable, :confirmable,
@@ -23,6 +24,33 @@ class User < ActiveRecord::Base
       :user_name => auth_info['info']['nickname'],
       :screen_name => auth_info['info']['name']
     )
+  end
+
+  def formatted_name
+    case provider
+    when 'twitter'
+     '@' + user_name
+    when 'facebook'
+      screen_name
+    else
+      '匿名希望'
+    end
+  end
+
+  def icon_url
+    # ToDo: 各サービスのURLがここにハードコードなのはよろしくない。helperかどこかに移動したい。
+    case provider
+    when 'twitter'
+      # http://d.hatena.ne.jp/furyu-tei/20100615/1276542947
+      # 48x48(pixel)
+      "http://gadgtwit.appspot.com/twicon/#{user_name}/normal"
+    when 'facebook'
+      # https://developers.facebook.com/docs/reference/api/
+      # 50x50(pixel)
+      "https://graph.facebook.com/#{uid}/picture/square"
+    else
+      'icons/anonymous.png'
+    end
   end
 
   private
