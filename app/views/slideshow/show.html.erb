@@ -1,0 +1,26 @@
+<div id="slide_wrapper">
+  <div id="slide">
+   <div id="phrases">
+      <p id="upper">
+       <%= @upper_phrase.content %>
+      </p>
+
+      <p id="lower">
+	      <%= @lower_phrase.content %>
+      </p>
+    </div>
+
+    <p id="from">
+      <% if @sender %>
+        <span class="icon"><%= image_tag(@sender.icon_url) %></span><%= @sender.formatted_name %>
+      <% else %>
+    	  <span class="icon"><%= image_tag('icons/anonymous.png') %></span> 匿名希望
+      <% end %>
+    </p>
+  </div>
+
+  <div class="bottom_bar">
+    <p class="top"><%= link_to 'Top', slideshow_index_path %></p>
+    <p class="more"><%= link_to 'More', slideshow_show_path %></p>
+  </div>
+</div>

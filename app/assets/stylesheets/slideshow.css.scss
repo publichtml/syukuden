@@ -1,0 +1,70 @@
+// Place all the styles related to the slideshow controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+#slide_wrapper {
+  width: 810px;
+
+  #slide {
+    background-image: image-url('frames/frame01.png');
+    background-repeat: no-repeat;
+    width: 570px;
+
+    padding: 100px 120px 40px 120px;
+
+    #phrases {
+      min-height: 260px;
+
+      #upper {
+        font-weight: bold;
+        font-size: 300%;
+        line-height: 100%;
+      }
+
+      #lower {
+        margin-top: 60px;
+        margin-bottom: 20px;
+        font-weight: bold;
+        font-size: 300%;
+        line-height: 100%;
+      }
+    }
+
+    #from {
+      margin-top: 10px;
+      font-weight: bold;
+      font-size: 200%;
+      text-align:right;
+      vertical-align: bottom;
+      line-height: 100%;
+
+      .icon {
+        display: inline-block;
+        width: 48px;
+        height: 48px;
+        margin-right: 15px;
+  
+        img {
+          display: inline-block;
+          vertical-align: bottom;
+          max-width: 48px;
+        }
+      }
+    }
+  }
+
+  .bottom_bar {
+    padding: 0 80px 20px 70px;
+
+    .top {
+      float: left;
+      font-size: 150%;
+    }
+
+    .more {
+      float: right;
+      text-align: right;
+      font-size: 150%;
+    }
+  }
+}
