@@ -21,6 +21,7 @@ log/
 
 .rvmrc
 .powrc
+.powder
 /config/database.yml
 /config/initializers/_env.rb
 
