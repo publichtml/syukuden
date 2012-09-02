@@ -1,21 +1,4 @@
 Syukuden::Application.routes.draw do
-  devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
-  devise_scope :user do
-    delete 'user_logout' => 'users/sessions#destroy'
-  end
-
-  root :to => 'slideshow#index'
-
-  get "slideshow/index"
-
-  get "slideshow/new"
-
-  get "slideshow/show"
-
-  resources :lower_phrases
-
-  resources :upper_phrases
-
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
