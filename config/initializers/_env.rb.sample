@@ -1,3 +1,7 @@
+# basic
+ENV['basic_auth_user'] = 'BASIC_AUTH_USER'
+ENV['basic_auth_password'] = 'BASIC_AUTH_PASSWORD'
+
 # omniauth
 ENV['facebook_app_id'] = 'FACEBOOK_APP_ID'
 ENV['facebook_app_secret'] = 'FACEBOOK_APP_SECRET'
