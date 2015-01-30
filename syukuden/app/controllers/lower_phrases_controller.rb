@@ -2,6 +2,10 @@ class LowerPhrasesController < ApplicationController
   # ToDo: UpperPhraseControllerとLowerPhraseControllerに別れているが、
   #       これは一つのPhraseControllerに統合した方が良さそう
   #       (リンクは相変わらず「上の句」と「下の句」に分けて、どちらかをGETで持ち回す)
+
+  before_filter :authenticate_user!
+  before_filter :authenticate_slide_sender!, :only => [:edit, :update, :destroy]
+
   # GET /lower_phrases
   # GET /lower_phrases.json
   def index
@@ -82,6 +86,15 @@ class LowerPhrasesController < ApplicationController
     respond_to do |format|
       format.html { redirect_to lower_phrases_url }
       format.json { head :no_content }
+    end
+  end
+
+  private
+
+  def authenticate_slide_sender!
+    @phrase = LowerPhrase.find(params[:id])
+    unless @phrase && current_user && current_user.id == @phrase.user_id
+      raise "You cannot update other person's phrase"
     end
   end
 end

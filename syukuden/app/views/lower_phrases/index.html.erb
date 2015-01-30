@@ -1,27 +1,30 @@
-<h1>Listing lower_phrases</h1>
+<h1>「下の句」リスト</h1>
 
-<table>
+<p><%= link_to '新規登録', new_lower_phrase_path %></p>
+<p>自分で登録した「下の句」のみ編集・削除できます</p>
+
+<table border>
   <tr>
-    <th>Content</th>
-    <th>Available</th>
-    <th>Deleted</th>
-    <th></th>
-    <th></th>
-    <th></th>
+    <th>句</th>
+    <th>編集</th>
+    <th>削除</th>
   </tr>
 
 <% @lower_phrases.each do |lower_phrase| %>
   <tr>
     <td><%= lower_phrase.content %></td>
-    <td><%= lower_phrase.available %></td>
-    <td><%= lower_phrase.deleted %></td>
-    <td><%= link_to 'Show', lower_phrase %></td>
-    <td><%= link_to 'Edit', edit_lower_phrase_path(lower_phrase) %></td>
-    <td><%= link_to 'Destroy', lower_phrase, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <% if current_user && current_user.id == lower_phrase.user_id %>
+    <td><%= link_to '編集', edit_lower_phrase_path(lower_phrase) %></td>
+    <td><%= link_to '削除', lower_phrase, method: :delete, data: { confirm: "「#{lower_phrase.content}」を削除します。よろしいですか?" } %></td>
+    <% else %>
+    <td></td>
+    <td></td>
+    <% end %>
   </tr>
 <% end %>
 </table>
 
 <br />
 
-<%= link_to 'New Lower phrase', new_lower_phrase_path %>
+<p><%= link_to '新規登録', new_lower_phrase_path %></p>
+<p><%= link_to 'Top', root_path %></p>

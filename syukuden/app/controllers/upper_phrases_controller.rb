@@ -1,4 +1,7 @@
 class UpperPhrasesController < ApplicationController
+  before_filter :authenticate_user!
+  before_filter :authenticate_slide_sender!, :only => [:edit, :update, :destroy]
+
   # GET /upper_phrases
   # GET /upper_phrases.json
   def index
@@ -79,6 +82,15 @@ class UpperPhrasesController < ApplicationController
     respond_to do |format|
       format.html { redirect_to upper_phrases_url }
       format.json { head :no_content }
+    end
+  end
+
+  private
+
+  def authenticate_slide_sender!
+    @phrase = UpperPhrase.find(params[:id])
+    unless @phrase && current_user && current_user.id == @phrase.user_id
+      raise "You cannot update other person's phrase"
     end
   end
 end
